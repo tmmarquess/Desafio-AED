@@ -1,7 +1,7 @@
 # **Desafio 1**
 
-
 ## **Parte 1**
+
 Projete e codifique em C/C++ um tipo abstrato de dados (TAD) ListaCompras utilizando lista encadeada. Na lista de compras, cada item de produto da lista guarda o **nome do item** (por exemplo, Ninho), seu **gênero** (por exemplo, leite), o seu **preço unitário** e a **quantidade** de itens a serem comprados. Implemente as operações básicas criaLista(), vazia(), cheia(), insere(), retira(), imprimeLista(). **(Questão 8.1)**
 > [Abrir Código](codigo/Questao8.1.c)
 

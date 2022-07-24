@@ -1,23 +1,27 @@
 #include "Questao8.1.c"
 
 /* Função para imprimir os itens da lista (passada por parâmetro)
-*  que são mais baratos que o valor recebido por parâmetro também
-*/
-void maisBaratosQue(ListaDeCompras *primeiroItem, float valor){
+ *  que são compraveis com o valor recebido por parâmetro também
+ */
+void maisBaratosQue(ListaDeCompras *primeiroItem, float valor)
+{
     ListaDeCompras *atual = primeiroItem;
-    while(atual != NULL){
-        if(atual -> produto.preco < valor){
-            printf("Nome: %s\n", atual -> produto.nome);
-            printf("Genero: %s\n", atual -> produto.genero);
-            printf("Quantidade: %d\n", atual -> produto.quantidade);
-            printf("Preco: %.2f\n", atual -> produto.preco);
+    while (atual != NULL)
+    {
+        if (atual->produto.preco <= valor)
+        {
+            printf("Nome: %s\n", atual->produto.nome);
+            printf("Genero: %s\n", atual->produto.genero);
+            printf("Quantidade: %d\n", atual->produto.quantidade);
+            printf("Preco: %.2f\n", atual->produto.preco);
             printf("==========================================\n");
         }
-        atual = atual -> prox;
+        atual = atual->prox;
     }
 }
 
-int main(){
+int main()
+{
     // Adicionando um produto novo
     produto prodNovo;
     strcpy(prodNovo.nome, "Queijo");
