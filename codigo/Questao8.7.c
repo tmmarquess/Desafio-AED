@@ -95,46 +95,64 @@ void separarPorGenero(ListaDeCompras *primeiroItem)
 
 int main()
 {
-    // Criando a lista e iniciando ela com o tamanho definido pelo usuário
-    ListaDeCompras *lista;
-    int tamanho;
-    printf("Quantos produtos voce deseja na lista de compras? \n");
-    scanf("%d", &tamanho);
+    // Adicionando um produto novo
+    produto prodNovo;
+    strcpy(prodNovo.nome, "Queijo");
+    strcpy(prodNovo.genero, "Laticinio");
+    prodNovo.preco = 3.50;
+    prodNovo.quantidade = 1;
 
-    //iteração para adicionar a quantidade de itens solicitadas pelo usuário
-    produto temporario;
-    char temp[30];
-    float preco;
-    int qnt;
-    for (int i = 0; i < tamanho; i++)
-    {
-        printf("Digite o nome do produto %d: ", i + 1);
-        fflush(stdin); // limpando o buffer do teclado antes de ler dados
-        scanf("%s", temporario.nome);
-        fflush(stdin); // limpando o buffer do teclado antes de ler dados
+    // Criando a Lista e iniciando ela
+    ListaDeCompras *primeiroItem;
+    primeiroItem = criarItem(prodNovo);
 
-        printf("Digite o genero do produto %d: ", i + 1);
-        fflush(stdin); // limpando o buffer do teclado antes de ler dados
-        scanf("%s", temporario.genero);
-        fflush(stdin); // limpando o buffer do teclado antes de ler dados
+    // Adicionando um produto novo
+    strcpy(prodNovo.nome, "Laranja");
+    strcpy(prodNovo.genero, "Frutas");
+    prodNovo.preco = 5;
+    prodNovo.quantidade = 10;
 
-        printf("Digite o preco unitario do produto %d: ", i + 1);
-        fflush(stdin); // limpando o buffer do teclado antes de ler dados
-        scanf("%f", &temporario.preco);
-        fflush(stdin); // limpando o buffer do teclado antes de ler dados
+    inserir(primeiroItem, prodNovo);
 
-        printf("Digite a quantidade que ira levar do produto %d: ", i + 1);
-        fflush(stdin); // limpando o buffer do teclado antes de ler dados
-        scanf("%d", &temporario.quantidade);
-        fflush(stdin); // limpando o buffer do teclado antes de ler dados
+    // Adicionando um produto novo
+    strcpy(prodNovo.nome, "Maca");
+    strcpy(prodNovo.genero, "Frutas");
+    prodNovo.preco = 7;
+    prodNovo.quantidade = 10;
 
-        if(i == 0){
-            lista = criarItem(temporario);
-        }else{
-            inserir(lista, temporario);
-        }
-    }
-    // imprime as listas separadas por gênero
-    printf("\n");
-    separarPorGenero(lista);
+    inserir(primeiroItem, prodNovo);
+
+    // Adicionando um produto novo
+    strcpy(prodNovo.nome, "Paprica");
+    strcpy(prodNovo.genero, "temperos");
+    prodNovo.preco = 1;
+    prodNovo.quantidade = 3;
+
+    inserir(primeiroItem, prodNovo);
+
+    // Adicionando um produto novo no início
+    strcpy(prodNovo.nome, "Farinha");
+    strcpy(prodNovo.genero, "graos");
+    prodNovo.preco = 10;
+    prodNovo.quantidade = 1;
+
+    primeiroItem = inserirNoInicio(primeiroItem, prodNovo);
+
+    // Adicionando um produto novo na posição desejada
+    strcpy(prodNovo.nome, "Linhaca");
+    strcpy(prodNovo.genero, "graos");
+    prodNovo.preco = 5;
+    prodNovo.quantidade = 3;
+
+    primeiroItem = inserirNoMeio(primeiroItem, prodNovo, 3);
+
+    // Adicionando um produto novo
+    strcpy(prodNovo.nome, "Cominho");
+    strcpy(prodNovo.genero, "temperos");
+    prodNovo.preco = 1;
+    prodNovo.quantidade = 3;
+
+    inserir(primeiroItem, prodNovo);
+
+    separarPorGenero(primeiroItem);
 }
