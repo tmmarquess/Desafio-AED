@@ -3,7 +3,7 @@
 /* Função para imprimir os itens da lista (passada por parâmetro)
  *  que são compraveis com o valor recebido por parâmetro também
  */
-void maisBaratosQue(ListaDeCompras *primeiroItem, float valor)
+void oQueComproCom(ListaDeCompras *primeiroItem, float valor)
 {
     ListaDeCompras *atual = primeiroItem;
     while (atual != NULL)
@@ -58,5 +58,5 @@ int main()
     inserir(primeiroItem, prodNovo);
 
     // imprimindo na tela os produtos mais baratos que o valor do parâmetro
-    maisBaratosQue(primeiroItem, 6);
+    oQueComproCom(primeiroItem, 6);
 }
