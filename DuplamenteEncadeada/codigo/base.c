@@ -125,6 +125,36 @@ node *deleteFromNode(node *currentNode){
     return currentNode;
 }
 
+int josephus(node *firstNode, int vlrInicial){
+    int listSize = 0;
+    node *current = firstNode;
+    while (current != NULL){
+        listSize += 1;
+        current = current -> next;
+    }
+    current = firstNode;
+
+    int cont = vlrInicial;
+    node *aux;
+    for(int i = 0; i < listSize - 1; i++){
+        
+        for(int j = 1; j < cont; j++){
+            current = current -> next;
+            if(current == NULL){
+                current = firstNode;
+            }
+        }
+        cont = current -> number;
+        current = deleteFromNode(current);
+        aux = current;
+        while (aux -> previous != NULL)
+            aux = aux -> previous;
+        firstNode = aux;        
+
+    }
+    return current -> number;
+}
+
 void printList(node *firstNode){
     node *current = firstNode;
 
@@ -148,4 +178,13 @@ int main(){
     firstNode = InsertOnTheBeginning(firstNode, 6);
 
     printList(firstNode);
+
+    node *firstNode2 = createNode(5);
+    insertOnTheEnd(firstNode2, 3);
+    insertOnTheEnd(firstNode2, 2);
+    insertOnTheEnd(firstNode2, 4);
+    insertOnTheEnd(firstNode2, 6);
+    insertOnTheEnd(firstNode2, 1);
+
+    printf("%d\n", josephus(firstNode2, 3));
 }
